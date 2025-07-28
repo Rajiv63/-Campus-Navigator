@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Navigator - Smart Campus Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎓 Campus Navigator</h1>
+      </div>
+
+      <div class="main-content">
+        <div class="feature-tabs">
+          <button class="tab-button active" onclick="showTab('chatbot')">
+            💬 AI Assistant
+          </button>
+          <button class="tab-button" onclick="showTab('navigation')">
+            🗺️ Navigation
+          </button>
+          <button class="tab-button" onclick="showTab('facilities')">
+            🏢 Live Facilities
+          </button>
+        </div>
+
+        <!-- Chatbot -->
+        <div id="chatbot" class="tab-content active">
+          <div class="quick-actions">
+            <button
+              class="quick-action"
+              onclick="sendQuickMessage('Where is the library?')"
+            >
+              Where is the library?
+            </button>
+            <button
+              class="quick-action"
+              onclick="sendQuickMessage('When is the next bus?')"
+            >
+              When is the next bus?
+            </button>
+            <button
+              class="quick-action"
+              onclick="sendQuickMessage('Where can I find the cafeteria?')"
+            >
+              Find cafeteria
+            </button>
+            <button
+              class="quick-action"
+              onclick="sendQuickMessage('What events are happening today?')"
+            >
+              Today's events
+            </button>
+          </div>
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+              <div class="message bot-message">
+                Hello! I'm your campus AI assistant. Ask me about locations,
+                schedules, events, or any campus services.
+              </div>
+            </div>
+            <div class="chat-input-container">
+              <input
+                type="text"
+                class="chat-input"
+                id="chatInput"
+                placeholder="Ask something..."
+                onkeypress="handleKeyPress(event)"
+              />
+              <button class="send-button" onclick="sendMessage()">Send</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div id="navigation" class="tab-content">
+          <div class="location-buttons">
+            <div class="location-button" onclick="navigateTo('Library')">
+              📚 Central Library
+            </div>
+            <div class="location-button" onclick="navigateTo('Cafeteria')">
+              🍽️ Main Cafeteria
+            </div>
+            <div class="location-button" onclick="navigateTo('Admin')">
+              🏢 Admin Office
+            </div>
+            <div class="location-button" onclick="navigateTo('Labs')">
+              🔬 Computer Labs
+            </div>
+            <div class="location-button" onclick="navigateTo('Auditorium')">
+              🎭 Auditorium
+            </div>
+            <div class="location-button" onclick="navigateTo('Parking')">
+              🚗 Parking Area
+            </div>
+          </div>
+          <div class="map-container" id="mapContainer">
+            <div class="map-placeholder">
+              <h3>🗺️ Interactive Campus Map</h3>
+              <p>Click on a location above to see navigation details</p>
+              <p><small>Google Maps integration coming soon</small></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facilities -->
+        <div id="facilities" class="tab-content">
+          <div class="facilities-grid" id="facilitiesGrid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
